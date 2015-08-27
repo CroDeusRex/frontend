@@ -1,0 +1,18 @@
+ <h3>Edit product data in warehouse : {{entry.product.name}}</h3>
+<form name="editWarehouseEntry" ng-controller="warehouseEntryEditController" ng-submit="submit_updatedentry()">
+    <div>
+        <p> Product info</p>
+        <p>Name : {{entry.product.name}}</p>
+        <p>Supplier : {{entry.product.supplier}}</p>
+    </div>
+    <div>
+        <p>Current quantity : {{entry.quantity}}</p>
+        <p>New value : </p><input type="number" ng-model="entry.quantity" requiered> </input>
+    </div>
+    <div>
+        <p>Current minimal quantity : {{entry.min_quantity}}</p>
+        <p>New value : </p> <input type="number" ng-model="entry.min_quantity" requiered> </input>
+    </div>
+
+    <input type="submit" value="Update"/>
+</form>

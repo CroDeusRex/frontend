@@ -1,0 +1,31 @@
+﻿<h1> Edit note : {{note.Title}}</h1>
+
+<form name="editNote" novalidate ng-controller="noteEditController" ng-submit="submit_updatednote()">
+    <div>
+        Title : <input type="text" name="title" ng-model="note.Title" required></input>
+
+        <span style="color:red" ng-show="editNote.title.$dirty">
+            <span style="color:red" ng-show="editNote.title.$error.required">Title is required.</span>
+        </span>
+    </div>
+
+    <br />
+
+    <div>
+        Text : <textarea name="text" ng-model="note.Text" required>{{note.Text}}</textarea>
+        <span style="color:red" ng-show="editNote.text.$dirty">
+            <span style="color:red" ng-show="editNote.text.$error.required">Text is required.</span>
+        </span>
+    </div>
+
+    <br />
+
+    <div>
+        Created on: {{note.CreatedOn}}
+    </div>
+    <div>
+        Created by: {{note.Author.FullName}}
+    </div>
+
+    <input type="submit" value="Update!"/>
+</form>

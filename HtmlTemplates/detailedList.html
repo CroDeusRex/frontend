@@ -1,0 +1,13 @@
+<div>
+    <h3> Order id: {{list[0].list.id}}</h3>
+    <h4> Caffe : {{list[0].list.cafe.name}}</h4>
+    <ul>
+        <li ng-repeat="product in list">
+            <img src="{{product.product.url}}">
+            <p>Product : {{product.product.name}} <br/>
+                Quantity : {{product.quantity}}</p>
+            <hr/>
+        </li>
+    </ul>
+    <button ng-click="finished(list[0].list.id)">Finished</button>
+</div>

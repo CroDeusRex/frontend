@@ -1,0 +1,27 @@
+﻿<div>
+    <form name="NewComment" novalidate ng-controller="commentAddNewController" ng-submit="submit()">
+
+        Text : <textarea placeholder="Text" name="text" ng-model="new_comment.Text" required></textarea>
+        <span style="color:red" ng-show="NewComment.text.$dirty">
+            <span style="color:red" ng-show="NewComment.text.$error.required">Text is required.</span>
+        </span>
+
+        <br />
+
+        <div>
+            Author :
+            <select ng-model="new_comment.UserId" name="user" required>
+                <option ng-repeat="user in users" value="{{user.Id}}">{{user.FullName}}</option>
+            </select>
+            <span ng-show="NewComment.user.$dirty">
+                <span style="color:red" ng-show="NewComment.user.$error.required">Must select user!</span>
+            </span>
+        </div>
+
+        <br />
+
+        <input type="submit" value="Submit" ng-disabled="!NewComment.text.$dirty || !NewComment.user.$dirty" />
+    </form>
+
+    <button ng-click="showme=false">Cancel</button>
+</div>

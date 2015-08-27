@@ -1,0 +1,10 @@
+<div>
+    <ul>
+        <li ng-repeat="order in lists">
+            <a href="#/detailedList/{{order.id}}">
+                <p>Caffe: {{order.cafe.name}}</p>
+                <small>Created on : {{order.created_on}}</small> 
+            </a>
+        </li>
+    </ul>
+</div>

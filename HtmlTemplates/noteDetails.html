@@ -1,0 +1,40 @@
+﻿<h2>Hello note details</h2>
+
+<h2>{{note.Title}} </h2>
+
+<div>
+    Created on: {{note.CreatedOn}}
+</div>
+<div>
+    Created by: {{note.Author.FullName}}
+</div>
+<p>
+    {{note.Text}}
+</p>
+
+<h3>Comments</h3>
+
+<div ng-repeat="comment in note.Comments track by $index">
+    <hr />
+    <div>
+        Commented by: {{comment.Author.FullName}} -
+        <small>Commented on: {{comment.CreatedOn}}</small>
+    </div>
+    <div>
+        Comment : {{comment.Text}}
+    </div>
+</div>
+<hr />
+
+<button ng-hide="showme" ng-click="showme=true">Add comment</button>
+    <div ng-show="showme">
+        <new-comment></new-comment>
+    </div>
+
+<br /><br /><br /><br />
+<div style="float:right;">
+    <a href="#/editNote/{{note.Id}}">Edit note</a>
+    <form name="delete" ng-controller="noteDeleteController" ng-submit="delete_req()">
+        <input type="submit" value="Delete note!" />
+    </form>
+</div>

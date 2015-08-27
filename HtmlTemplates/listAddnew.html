@@ -1,0 +1,32 @@
+<h1>Nova narudžba</h1>
+<form novalidate ng-submit="postToServer()">
+    Kafić : <select ng-model="chosen_cafe" name="cafe" required>
+                <option ng-repeat="entry in cafe" value="{{entry}}">{{entry.name}}</option>
+            </select>
+    <br />
+    
+    Narudžba :    
+    <ul>
+        <li ng-repeat="order in orders">
+            <label>Product: 
+                <select ng-model="order.product" required>
+                    <option ng-repeat="entry in warehouse" value="{{entry.product}}" >{{entry.product.name}}</option>
+                </select>   
+            </label>
+            
+            <label>Quantity:{{order.product.max_quantity}}
+                <input type="number" ng-model="order.quantity" min="0">?
+            </label>
+
+            <button ng-click="orders.splice($index, 1)" aria-label="Remove">X</button>
+        </li>
+        
+        <li>
+          <button type="button" ng-click="addNewOrder()">add</button>
+        </li>
+    </ul>
+    <br />
+
+    <input type="submit" value="Submit"/>
+</form>
+

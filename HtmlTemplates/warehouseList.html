@@ -1,0 +1,9 @@
+<h1>Skladiste - stanje</h1>
+
+<div ng-repeat="entry in warehouse">
+    <h3>{{entry.product.name}}</h3>
+    <p>quantity = {{entry.quantity}}</p>
+    <p>minimal quantity = {{entry.min_quantity}}</p>
+    <a href="#/warehouse/{{entry.warehouse_entry}}/item">edit entry</a>
+    <hr/>
+</div>
